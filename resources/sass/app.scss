@@ -6,3 +6,36 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import 'login';
+
+
+.container_header{
+    margin: auto;
+    width: 75%;
+    height: 80px;
+    .logo{
+        height:65%;
+        width: 16%;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.main{
+    background-color: #ececec;
+}
+
+
+.container_content{
+    .singolo{
+        a{
+            text-decoration: none;
+        }
+    }
+}
+
+
+

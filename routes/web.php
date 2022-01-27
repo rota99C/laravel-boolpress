@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,16 +15,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
+
 
 Auth::routes();
 
 
 
 //Rotte lato guest
-Route::resource('products', ProductController::class)->only(['index', 'show']);
+Route::resource('posts', PostController::class)->only(['index', 'show']);
+
+Route::get('/', 'PostController@index')->name('guest.index');
+Route::get('/posts/{post}', 'PostController@show')->name('guest.show');
 
 // Rotte lato admin
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
