@@ -12178,6 +12178,18 @@ fieldset:disabled .btn {
   }
 }
 
+.container_table .article-column {
+  width: 40%;
+}
+
+.container_table .article span {
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+
 body {
   font-size: 0.875rem;
 }
@@ -12186,6 +12198,14 @@ body {
   width: 16px;
   height: 16px;
   vertical-align: text-bottom;
+}
+
+.active {
+  color: white;
+}
+
+.inactive {
+  color: #76838E;
 }
 
 /*
@@ -12280,5 +12300,40 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+aside {
+  float: left;
+  background-color: #303841;
+  height: 100vh;
+  width: 250px;
+}
+
+aside .admin_control {
+  background-color: #0282f9;
+  padding: 8px 0px;
+}
+
+aside .container_admin {
+  padding: 8px 2rem;
+}
+
+aside ul li {
+  list-style: none;
+  padding: 8px 0px;
+}
+
+aside ul li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+aside ul li a:visited {
+  color: inherit;
+}
+
+main {
+  width: calc(100% - 250px);
+  float: right;
 }
 

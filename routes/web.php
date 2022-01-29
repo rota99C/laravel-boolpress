@@ -30,6 +30,7 @@ Route::get('/posts/{post}', 'PostController@show')->name('guest.show');
 // Rotte lato admin
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/posts', 'PostController@index')->name('posts.index');
 
     Route::resource('products', ProductController::class);
 });

@@ -1,0 +1,13 @@
+.container_table{
+    .article-column {
+        width: 40%;
+    }
+    .article span{
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow:hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        }
+
+}

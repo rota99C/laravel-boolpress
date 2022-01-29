@@ -7,6 +7,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'index_admin';
+
 
 body {
     font-size: .875rem;
@@ -16,6 +18,13 @@ body {
     width: 16px;
     height: 16px;
     vertical-align: text-bottom;
+}
+
+.active {
+    color: white;
+}
+.inactive {
+    color: #76838E;
 }
 
 /*
@@ -110,4 +119,45 @@ body {
 .form-control-dark:focus {
     border-color: transparent;
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+
+
+
+
+//sidebar
+
+aside{
+    float: left;
+    background-color: #303841;
+    height: 100vh;
+    width: 250px;
+    .admin_control{
+        background-color: #0282f9;
+        padding: 8px 0px;
+
+    }
+    .container_admin{
+        padding: 8px 2rem;
+    }
+    ul li{
+        list-style: none;
+        padding: 8px 0px;
+        a{
+            color: inherit;
+            text-decoration: none;
+            &:visited {
+                color: inherit;
+            }
+        }
+        
+    }
+
+}
+
+
+//main 
+main{
+    width: calc(100% - 250px);
+    float: right;
 }
