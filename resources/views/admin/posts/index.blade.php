@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@include ('partials.sidebar')
 
 @section('content')
 
@@ -6,7 +7,7 @@
     <div class="d-flex w-25 justify-content-around pt-4 pb-4">
         <i class="fas fa-database"></i>
         <h3>Posts list</h3>
-        <button type="button" class="btn btn-success"><a class="text-white">+ create</a>
+        <button type="button" class="btn btn-success"><a class="text-white" href="{{route('admin.posts.create')}}">+ create </a>
         </button>
     </div>
     @if (session('messaggio'))
@@ -28,7 +29,6 @@
                 <th>Category</th>
                 <th>Date</th>
                 <th>Author</th>
-
                 <th>Tools</th>
 
             </tr>
@@ -45,13 +45,13 @@
                 <td>{{$post -> date}}</td>
                 <td>{{$post -> author}}</td>
                 <td>
-                    <a href=""><i class="fas fa-pen m-2"></i></a>
-                    <form action="" method="post">
+                    <a href="{{route('admin.posts.edit', $post->id)}}"><i class="fas fa-pen m-2"></i></a>
+                    <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="bottone_delete" type="submit"><i class="fas fa-trash-alt text-danger m-2"></i></button>
+                        <button class="bottone_delete border-0" type="submit"><i class="fas fa-trash-alt text-danger m-2 "></i></button>
                     </form>
-                    <a href=""><i class="far fa-eye text-success m-2"></i></a>
+                    <a href="{{route('guest.show', $post->id)}}"><i class="far fa-eye text-success m-2"></i></a>
                 </td>
             </tr>
             @endforeach
