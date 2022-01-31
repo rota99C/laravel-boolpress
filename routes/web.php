@@ -47,4 +47,5 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     Route::get('/categories', 'CategoryController@index')->name('categories.index');
     Route::post('/categories', 'CategoryController@store')->name('categories.store');
     Route::put('/categories/{category}', 'CategoryController@update')->name('categories.update');
+    Route::delete('categories/{category}', 'CategoryController@destroy')->name('categories.destroy');
 });
