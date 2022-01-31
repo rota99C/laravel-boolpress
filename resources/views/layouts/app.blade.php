@@ -24,10 +24,10 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container_header d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <img src="{{asset('img/logo_tg.png')}}" alt="">
+                    <a href="{{route('guest.index')}}"><img src="{{asset('img/logo_tg.png')}}" alt=""></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -77,7 +77,7 @@
         <main>
             @yield('content')
         </main>
-        <div class="footer w-75 m-auto d-flex justify-content-between py-4 my-4 border-top">
+        <div class="footer mt-4 w-75 m-auto d-flex justify-content-between py-3 my-4 border-top">
             <p>&copy; Mediaset Company, Inc. All rights reserved.</p>
             <ul class="list-unstyled d-flex">
                 <li class="ms-3"><a class="link-dark" href="#">

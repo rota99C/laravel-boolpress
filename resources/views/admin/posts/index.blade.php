@@ -41,7 +41,7 @@
                 <td class="article"><span>{{$post -> article }}</span></td>
                 <td class=""> <img class="col-4" src="{{$post -> image}}" alt="">
                 </td>
-                <td></td>
+                <td>{{$post->category->name}}</td>
                 <td>{{$post -> date}}</td>
                 <td>{{$post -> author}}</td>
                 <td>

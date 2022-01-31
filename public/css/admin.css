@@ -12337,3 +12337,8 @@ main {
   float: right;
 }
 
+.container_category .col-3 {
+  height: 360px !important;
+  background: red;
+}
+

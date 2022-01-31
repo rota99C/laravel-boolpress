@@ -1,13 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;
 
-400;700&display=swap);@charset "UTF-8";
-
-/*!
- * Bootstrap v5.1.3 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+400;700&display=swap);@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap);@charset "UTF-8";
 :root {
   --bs-blue: #3490dc;
   --bs-indigo: #6574cd;
@@ -12223,11 +12216,67 @@ fieldset:disabled .btn {
   width: 100%;
 }
 
-.main {
-  background-color: #ececec;
+main {
+  background-color: #ebe9e9;
+  margin-top: -24px;
+  padding-top: 44px;
 }
 
-.container_content .singolo a {
+.container_content {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container_content a {
   text-decoration: none;
+}
+
+.container_content img {
+  width: 100%;
+}
+
+.container_content img.h-60 {
+  height: 60%;
+}
+
+.container_content .jumbo {
+  grid-area: 1/1/span 2/span 2;
+}
+
+.container_content .jumbo img {
+  margin-top: 20px;
+}
+
+.container_content .jumbo p {
+  font-size: 18px !important;
+}
+
+.container_content .jumbo h3,
+.container_content .jumbo .h3 {
+  margin-top: 15px;
+}
+
+.container_content div:not(.jumbo) h3,
+.container_content div:not(.jumbo) .h3 {
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.category_menu {
+  top: 200px;
+  left: 70px;
+}
+
+.category_menu div p {
+  margin: 0px !important;
+}
+
+.container_category_post img {
+  height: 60%;
 }
 

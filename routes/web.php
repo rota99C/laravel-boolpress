@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +25,7 @@ Auth::routes();
 
 //Rotte lato guest
 Route::resource('posts', PostController::class)->only(['index', 'show']);
-
+Route::get('/categories/{category}/posts', 'CategoryController@filter')->name('categories.posts');
 Route::get('/', 'PostController@index')->name('guest.index');
 Route::get('/posts/{post}', 'PostController@show')->name('guest.show');
 
@@ -40,4 +42,9 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
 
 
     Route::resource('products', ProductController::class);
+    //Rotte lato admin.categories
+    Route::resource('categories', CategoryController::class);
+    Route::get('/categories', 'CategoryController@index')->name('categories.index');
+    Route::post('/categories', 'CategoryController@store')->name('categories.store');
+    Route::put('/categories/{category}', 'CategoryController@update')->name('categories.update');
 });

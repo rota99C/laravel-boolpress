@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -15,8 +16,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $posts = Post::paginate(4);
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'categories'));
     }
 
     /**
@@ -26,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -44,8 +47,9 @@ class PostController extends Controller
             'date' => 'nullable',
             'author' => 'nullable|max:70',
             'image' => 'nullable|max:200',
+            'category_id' => 'nullable|exists:categories,id'
         ]);
-
+        /* ddd($validate); */
         Post::create($validate);
         return redirect()->route('admin.posts.index');
     }
@@ -69,7 +73,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -89,6 +94,7 @@ class PostController extends Controller
             'date' => 'nullable',
             'author' => 'nullable|max:70',
             'image' => 'nullable|max:200',
+            'category_id' => 'nullable|exists:categories,id'
         ]);
         $post->update($validate);
         return redirect()->route('admin.posts.index');

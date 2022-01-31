@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
 // Variables
 @import 'variables';
@@ -24,16 +25,71 @@
     }
 }
 
-.main{
-    background-color: #ececec;
+main{
+    background-color: rgb(235, 233, 233);
+    margin-top: -24px;
+    padding-top: 44px;
 }
 
 
-.container_content{
-    .singolo{
-        a{
-            text-decoration: none;
+.container_content {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    a{
+        text-decoration: none;
+    }
+    img {
+        width: 100%;
+        &.h-60 {
+            height: 60%;
         }
+    }
+    .jumbo {
+        grid-area: 1 / 1 / span 2 / span 2;
+        img{
+            margin-top: 20px;
+        }
+        p{
+            font-size: 18px!important;
+        }
+        h3{
+            margin-top: 15px;
+        }
+    }
+    div:not(.jumbo){
+        h3{
+            font-size: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+       
+    }
+}
+
+.category_menu{
+    top: 200px;
+    left: 70px;
+    div{
+        p{
+            margin: 0px!important;
+        }
+    }
+}
+
+
+
+
+//category
+
+
+.container_category_post{
+    img{
+        height: 60%;
+
     }
 }
 

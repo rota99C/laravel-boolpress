@@ -35,7 +35,22 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
-        <label for="date" class="form-label mb-2 text-secondary"><strong>date</strong> </label>
+
+        <label for="category_id" class="form-label mb-2 text-secondary"><strong>category_id</strong> </label>
+        <select class="bg-primary text-white" name="category_id" id="category_id">
+            <option value="" selected>scegli una categoria</option>
+            @foreach ($categories as $category)
+            <option value="{{$category->id}}">
+                {{$category->name}}
+            </option>
+            @endforeach
+        </select>
+        @error('category_id')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <br>
+
+        <label for="date" class="form-label mb-2 mt-4 text-secondary"><strong>date</strong> </label>
         <input value="{{old('date')}}" class="form-control @error('date') is-invalid @enderror mb-4" type="date" name="date" id="date" placeholder="" aria-describedby="helpId">
         @error('date')
         <div class="alert alert-danger">{{ $message }}</div>
