@@ -9,7 +9,7 @@
         <a href="{{route('guest.show', $post->id)}}">
             @if($loop->first)<p class="text-secondary border border-white fs-6 text-center shadow"><strong>IN EVIDENZA</strong> </p>@endif
 
-            <img @if($loop->iteration > 3) class="h-60" @else class="h-75" @endif src="{{$post->image}}" alt="">
+            <img @if($loop->iteration > 3) class="h-60" @else class="h-75" @endif src="{{asset('storage/' . $post->image)}}" alt="">
             <h3 class="text-black"><strong>{{$post->title}}</strong></h3>
             @if($loop->first || $loop->iteration > 3)<p class="text-secondary fs-6">{{$post->subtitle}}</p>@endif
         </a>

@@ -40,7 +40,7 @@
                 <td scope="row">{{$post -> title}}</td>
                 <td>{{$post->subtitle}}</td>
                 <td class="article"><span>{{$post -> article }}</span></td>
-                <td class=""> <img class="col-4" src="{{$post -> image}}" alt="">
+                <td class=""> <img class="col-4" src="{{asset('storage/' . $post->image)}}" alt="">
                 </td>
                 <td>@foreach ($post->tags as $tag) {{$tag->name}} @endforeach</td>
                 <td>{{$post->category->name}}</td>

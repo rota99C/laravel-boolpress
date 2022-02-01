@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -48,9 +49,13 @@ class PostController extends Controller
             'article' => 'nullable|max:4000',
             'date' => 'nullable',
             'author' => 'nullable|max:70',
-            'image' => 'nullable|max:200',
+            'image' => ['nullable', 'mimes:jpg,png', 'max:5000'],
             'category_id' => 'nullable|exists:categories,id'
         ]);
+        if ($request->file('image')) {
+            $image_path = Storage::put('post_images', $request->file('image'));
+            $validate['image'] = $image_path;
+        }
         /* ddd($validate); */
         $post = Post::create($validate);
 
@@ -104,9 +109,13 @@ class PostController extends Controller
             'article' => 'nullable|max:4000',
             'date' => 'nullable',
             'author' => 'nullable|max:70',
-            'image' => 'nullable|max:200',
+            'image' => ['nullable', 'mimes:jpg,png', 'max:5000'],
             'category_id' => 'nullable|exists:categories,id'
         ]);
+        if ($request->file('image')) {
+            $image_path = Storage::put('post_images', $request->file('image'));
+            $validate['image'] = $image_path;
+        }
         $post->update($validate);
         if ($request->has('tags')) {
             $request->validate([

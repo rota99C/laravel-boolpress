@@ -4,7 +4,7 @@
     <h3>Create a Post</h3>
 </div>
 
-<form action="{{route('admin.posts.store')}}" method="post">
+<form action="{{route('admin.posts.store')}}" enctype="multipart/form-data" method="post">
     @csrf
 
     <div class="mb-4 ms-4 me-4">
@@ -29,13 +29,15 @@
         @enderror
         <br>
 
-        <label for="image" class="form-label mb-2 mt-4 text-secondary"><strong>Image thumb URL</strong> </label>
-        <input value="{{old('image')}}" class="form-control @error('image') is-invalid @enderror mb-4" type="text" name="image" id="image" placeholder="Insert the image URL" aria-describedby="helpId">
+
+        <label for="image" class="form-label mb-4">Image</label>
+        <input type="file" name="image" id="image" accept="image/*" placeholder="https://" aria-describedby="imageHelper" class="form-control @error('image') is-invalid @enderror">
         @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
-        <label for="tags" class="form-label mb-2 text-secondary"><strong>tags</strong> </label>
+
+        <label for="tags" class="form-label mb-2 text-secondary mt-4"><strong>tags</strong> </label>
         @foreach ($tags as $tag)
         <input type="checkbox" name="tags[]" id="tags" value="{{$tag->id}}">
         <label for="">{{$tag->name}}</label>
@@ -55,7 +57,7 @@
 
 
 
-        <label for="category_id" class="form-label mb-2 text-secondary"><strong>category_id</strong> </label>
+        <label for="category_id" class="form-label mb-2 text-secondary ms-4"><strong>category_id</strong> </label>
         <select class="bg-primary text-white" name="category_id" id="category_id">
             <option value="" selected>scegli una categoria</option>
             @foreach ($categories as $category)

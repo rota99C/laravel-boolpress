@@ -4,7 +4,7 @@
     <h3>Edit a Post</h3>
 </div>
 
-<form action="{{route('admin.posts.update', $post->id)}}" method="post">
+<form action="{{route('admin.posts.update', $post->id)}}" enctype="multipart/form-data" method="post">
     @csrf
     @method('PUT')
 
@@ -30,29 +30,33 @@
         @enderror
         <br>
 
-        <label for="image" class="form-label mb-2 mt-4 text-secondary"><strong>Image thumb URL</strong> </label>
-        <input value="{{$post->image}}" class="form-control @error('image') is-invalid @enderror mb-4" type="text" name="image" id="image" placeholder="Insert the image URL" aria-describedby="helpId">
+        <label for="image" class="form-label mb-4">change Image</label>
+        <input type="file" name="image" id="image" accept="image/*" placeholder="https://" aria-describedby="imageHelper" class="form-control @error('image') is-invalid @enderror">
         @error('image')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
 
 
-        <label for="tags" class="form-label mb-2 text-secondary"><strong>tags</strong> </label>
-        <select multiple class="bg-primary text-white" name="tags[]" id="tags">
+        <label for="tags" class="form-label mb-2 text-secondary mt-4"><strong>tags</strong> </label>
+        @foreach ($tags as $tag)
+        <input type="checkbox" name="tags[]" id="tags" value="{{$tag->id}}">
+        <label for="">{{$tag->name}}</label>
+        @endforeach
+        {{--<select multiple class="bg-primary text-white d-flex" name="tags[]" id="tags">
             <option value="" selected>scegli dei tag</option>
             @foreach ($tags as $tag)
-            <option value="{{$tag->id}}" {{$post->tags->contains($tag->id)?'selected':''}}>
-                {{$tag->name}}
-            </option>
-            @endforeach
-        </select>
+            <option value="{{$tag->id}}">
+        {{$tag->name}}
+        </option>
+        @endforeach
+        </select>--}}
         @error('tag_id')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
 
-        <label for="category_id" class="form-label mb-2 text-secondary"><strong>category_id</strong> </label>
+        <label for="category_id" class="form-label mb-2 ms-4text-secondary"><strong>category_id</strong> </label>
         <select class="bg-primary text-white" name="category_id" id="category_id">
             <option value="">None</option>
             @foreach ($categories as $category)
