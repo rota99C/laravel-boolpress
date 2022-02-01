@@ -38,7 +38,7 @@
         </div>
         <div class="bg-white shadow ps-3 pe-3 pt-2 pb-2 mb-3">
             @foreach ($tags as $tag)
-            <a class="text-decoration-none text-secondary" href="{{route('categories.posts', $category->id)}}">
+            <a class="text-decoration-none text-secondary" href="{{route('tags.posts', $tag->id)}}">
                 <p class="pt-2 pb-2">{{$tag->name}}</p>
             </a>
 
