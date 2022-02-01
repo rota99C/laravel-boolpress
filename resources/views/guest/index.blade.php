@@ -34,12 +34,12 @@
 
     <div>
         <div class="bg-white shadow ps-3 pe-3 pt-2 pb-2 mb-3">
-            <p class="fs-6 text-primary"><strong>TAGS</strong></p>
+            <p class="fs-6 text-success"><strong>TAGS</strong></p>
         </div>
         <div class="bg-white shadow ps-3 pe-3 pt-2 pb-2 mb-3">
-            @foreach ($categories as $category)
+            @foreach ($tags as $tag)
             <a class="text-decoration-none text-secondary" href="{{route('categories.posts', $category->id)}}">
-                <p class="pt-2 pb-2">{{$category->name}}</p>
+                <p class="pt-2 pb-2">{{$tag->name}}</p>
             </a>
 
             @endforeach

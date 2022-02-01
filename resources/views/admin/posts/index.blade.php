@@ -26,6 +26,7 @@
                 <th>Subtitle</th>
                 <th class="article-column">Article</th>
                 <th>Images</th>
+                <th>Tags</th>
                 <th>Category</th>
                 <th>Date</th>
                 <th>Author</th>
@@ -41,6 +42,7 @@
                 <td class="article"><span>{{$post -> article }}</span></td>
                 <td class=""> <img class="col-4" src="{{$post -> image}}" alt="">
                 </td>
+                <td>@foreach ($post->tags as $tag) {{$tag->name}} @endforeach</td>
                 <td>{{$post->category->name}}</td>
                 <td>{{$post -> date}}</td>
                 <td>{{$post -> author}}</td>

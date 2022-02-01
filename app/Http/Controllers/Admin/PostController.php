@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -28,8 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -50,7 +52,15 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id'
         ]);
         /* ddd($validate); */
-        Post::create($validate);
+        $post = Post::create($validate);
+
+        if ($request->has('tags')) {
+            $request->validate([
+                'tags' => 'nullable|exists:tags,id'
+            ]);
+            $post->tags()->attach($request->tags);
+        }
+
         return redirect()->route('admin.posts.index');
     }
 
@@ -73,8 +83,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -97,6 +108,13 @@ class PostController extends Controller
             'category_id' => 'nullable|exists:categories,id'
         ]);
         $post->update($validate);
+        if ($request->has('tags')) {
+            $request->validate([
+                'tags' => 'nullable|exists:tags,id'
+            ]);
+            $post->tags()->sync($request->tags);
+        }
+
         return redirect()->route('admin.posts.index');
     }
 

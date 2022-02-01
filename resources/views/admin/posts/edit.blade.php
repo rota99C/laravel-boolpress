@@ -37,6 +37,21 @@
         @enderror
 
 
+
+        <label for="tags" class="form-label mb-2 text-secondary"><strong>tags</strong> </label>
+        <select multiple class="bg-primary text-white" name="tags[]" id="tags">
+            <option value="" selected>scegli dei tag</option>
+            @foreach ($tags as $tag)
+            <option value="{{$tag->id}}" {{$post->tags->contains($tag->id)?'selected':''}}>
+                {{$tag->name}}
+            </option>
+            @endforeach
+        </select>
+        @error('tag_id')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
+
         <label for="category_id" class="form-label mb-2 text-secondary"><strong>category_id</strong> </label>
         <select class="bg-primary text-white" name="category_id" id="category_id">
             <option value="">None</option>
