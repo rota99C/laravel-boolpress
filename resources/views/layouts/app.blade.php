@@ -39,6 +39,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contacts') }}"><i class="fas fa-paper-plane"></i> <span class="ms-2">CONTACT</span> </a>
+                        </li>
                         @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-user-alt text-black"></i> <span class="ms-2">LOGIN</span> </a>

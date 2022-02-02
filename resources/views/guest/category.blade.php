@@ -7,7 +7,7 @@
     @foreach ($posts as $post)
     <div class="col-4 px-2">
         <a class="text-decoration-none " href="{{route('guest.show', $post->id)}}">
-            <img class="w-100 mb-4" src=" {{$post->image}}" alt="">
+            <img class="w-100 mb-4" src="{{asset('storage/' . $post->image)}}" alt="">
             <h3 class="text-black"><strong>{{$post->title}}</strong></h3>
             <p class=" text-secondary fs-6">{{$post->subtitle}}</p>
 

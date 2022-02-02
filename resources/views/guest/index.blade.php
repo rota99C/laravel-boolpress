@@ -17,7 +17,7 @@
     @endforeach
 </div>
 
-<div class="postion position-absolute category_menu position-fixed">
+<div class="postion position-absolute category_menu position-fixed me-4">
     <div>
         <div class="bg-white shadow ps-3 pe-3 pt-2 pb-2 mb-3">
             <p class="fs-6 text-primary"><strong>CATEGORIES</strong></p>

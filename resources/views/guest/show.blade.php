@@ -12,7 +12,7 @@
     </div>
     <h1 class="mb-3"><strong>{{$post->title}}</strong></h1>
     <div class="w-100 m-auto">
-        <img class="w-100" src="{{$post->image}}" alt="">
+        <img class="w-100" src="{{asset('storage/' . $post->image)}}" alt="">
     </div>
     <div class="mt-4">
         <p>{{$post->article}}</p>

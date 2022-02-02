@@ -29,6 +29,10 @@ Route::get('/categories/{category}/posts', 'CategoryController@filter')->name('c
 Route::get('/', 'PostController@index')->name('guest.index');
 Route::get('/posts/{post}', 'PostController@show')->name('guest.show');
 Route::get('/tags/{tag}/posts', 'TagController@filter')->name('tags.posts');
+Route::get('/contacts', 'ContactController@index')->name('contacts');
+
+
+Route::post('/contacts', 'ContactController@sendForm')->name('contacts.send');
 
 // Rotte lato admin
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
