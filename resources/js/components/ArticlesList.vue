@@ -5,6 +5,7 @@
         <div class="card-body">
           <h3>{{ post.title }}</h3>
           <img :src="'storage/' + post.image" alt="" />
+          <p>{{ post.subtitle }}</p>
         </div>
       </div>
     </div>
