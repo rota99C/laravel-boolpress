@@ -24,7 +24,8 @@ class ContactController extends Controller
         //ddd($validate);
         $contact = Contact::create($validate);
 
-        Mail::to('admin@admin.com')->send(new SendContactFormMail($contact))->render();
+        // return (new SendContactFormMail($contact))->render();
+        Mail::to('admin@admin.com')->send(new SendContactFormMail($contact));
 
         return redirect()->back();
     }

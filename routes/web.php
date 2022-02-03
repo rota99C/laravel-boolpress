@@ -31,6 +31,10 @@ Route::get('/posts/{post}', 'PostController@show')->name('guest.show');
 Route::get('/tags/{tag}/posts', 'TagController@filter')->name('tags.posts');
 Route::get('/contacts', 'ContactController@index')->name('contacts');
 
+// Rotta per implementazione VueJs
+Route::get('/blog', function () {
+    return view('guest.blog');
+})->name('blog');
 
 Route::post('/contacts', 'ContactController@sendForm')->name('contacts.send');
 
